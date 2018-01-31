@@ -9,36 +9,33 @@
 
 <body>
     <h1>Rango says...</h1>
-        <div>hey there partner!</div>
+        <div>Hey there partner!</div>
 
-    <div>
-        <h2> Most Liked Categories</h2>
-        {% if categories %}
-        <ul>
-            {% for category in categories %}
-                <li>
-                 <a href="/rango/category/{{ category.slug }}">{{ category.name }}</a>
-                </li>
-            {% endfor %}
-        </ul>
-        {% else %}
-            <strong>There are no categories present.</strong>
-        {% endif %}
-    </div>
+    <div class="row-fluid">
+    <div class="span6">
+            <h2>Top Five Categories</h2>
+            {% if categories %}
+             <ul>
+                {% for category in categories %}
+                    <li><a href="/rango/category/{{ category.slug }}">{{ category.name }}</a></li>
+                {% endfor %}
+             </ul>
+             {% else %}
+                 <strong>No categories at present.</strong>
+                 {% endif %}
+     </div>
 
-    <div>
-        <h2> Most Viewed pages</h2>
+     <div class="span6">
+        <h2>Top Five Pages</h2>
         {% if pages %}
-        <ul>
-            {% for page in pages %}
-            <li>
-                <a href="{{  page.url }}">{{ page.title }}</a> - {{  page.category }} ({{ page.views }} view(s))
-            </li>
-            {%  endfor %}
-        </ul>
-        {%  else %}
-            <strong>No pages currently in category</strong>
-        {%  endif %}
+             <ul>
+                 {% for page in pages %}
+                    <li><a href="{{  page.url}}">{{ page.title }}</a></li>
+                 {% endfor %}
+             </ul>
+        {% else %}
+        <strong>No pages at present.</strong>
+        {% endif %}
     </div>
 
     <div>
