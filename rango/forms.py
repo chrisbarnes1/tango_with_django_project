@@ -25,8 +25,8 @@ class PageForm(forms.ModelForm):
         # If url is not empty and doesn't start with 'http://' add 'http://' to the beginning
         if url and not url.startswith('http://'):
             url = 'http://' + url
-
             cleaned_data['url'] = url
+
         return cleaned_data
 
     class Meta:
