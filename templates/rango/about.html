@@ -1,24 +1,15 @@
-<!DOCTYPE html>
+{% extends "rango/base.html" %}
 
-{% load staticfiles %} <!-- New line -->
+{% load static %}
 
-<html>
+{% block title %}About{% endblock %}
 
-	<head>
-		<title>Rango</title>
-	</head>
+{% block body_block %}
+<div class="hero-unit">
+    <h1>About Rango</h1>
+    This is Rango's about page.<br/>
 
-	<body>
-		<h1>This tutorial has been put together by Chris Barnes!</h1>
-	<!--<div>
-		hey there partner! <br />
-		<strong>{{ boldmessage }}</strong><br />
-	</div> -->
-	<div>
-		<a href="/rango/">Index</a><br />
-		<img src="/static/images/logo.jpg"/>
-		<img src="/media/cat.jpg" alt="Picture of a cat"/>
-	</div>
-	</body>
-
-</html>
+    This page has been assembled by Chris Barnes!<br/>
+    <img src="/media/cat.jpg" alt="Picture of a cat"/>
+</div>
+{% endblock %}

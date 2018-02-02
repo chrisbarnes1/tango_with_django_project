@@ -16,12 +16,12 @@ def add_page(request, category_name_slug):
     if request.method == 'POST':
         form = PageForm(request.POST)
         if form.is_valid():
-            if category:
-                page = form.save(commit=False)
-                page.category = category
-                page.views = 0
-                page.save()
-                return show_category(request, category_name_slug)
+                if category:
+                    page = form.save(commit=False)
+                    page.category = category
+                    page.views = 0
+                    page.save()
+                    return show_category(request, category_name_slug)
         else:
             print(form.errors)
 
@@ -79,3 +79,7 @@ def index(request):
 
 def about(request):
     return render(request, 'rango/about.html')
+
+def get_category_list(cat=None):
+    return {'cats': Category.objects.all(),
+            'act_cat': cat}
